@@ -8,19 +8,38 @@
     <!-- Classic meta tags from the era -->
     <meta name="keywords" content="y2k, 90s, nostalgia, friends, titanic, rom com, millennium">
     <meta name="description" content="Take a trip back to the golden era of the internet!">
+    <!-- Add favicon - a classic smiley face -->
+    <link rel="icon" href="https://i.imgur.com/JR6sLTs.gif" type="image/gif">
 </head>
 <body>
     <div class="stars"></div>
     <div class="twinkling"></div>
+    
+    <!-- Add a Y2K-style popup on page load -->
+    <div id="welcome-popup" class="popup">
+        <div class="popup-content">
+            <h2>Welcome to my site!</h2>
+            <p>⭐ You've been chosen to view my awesome Y2K page! ⭐</p>
+            <button id="enter-site">Enter Site</button>
+        </div>
+    </div>
     
     <div class="visitor-counter">
         <span>Visitors: </span>
         <span id="counter">1,337</span>
     </div>
 
+    <!-- Add a Y2K-style page cursor -->
+    <div id="custom-cursor"></div>
+
     <div class="construction">
         <img src="https://web.archive.org/web/20091027005903im_/http://www.geocities.com/hk/Daikanyama/1949/const.gif" alt="Under Construction">
         <img src="https://gifcities.org/assets/gifs/CONST.GIF" alt="Under Construction">
+    </div>
+
+    <!-- Add a "new" animated gif -->
+    <div class="new-badge">
+        <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/new.gif" alt="New!">
     </div>
 
     <div class="container">
@@ -33,6 +52,11 @@
             </div>
         </header>
 
+        <!-- Add a classic "skip intro" option -->
+        <div class="skip-intro">
+            <a href="#main-content">Skip Intro >></a>
+        </div>
+
         <nav>
             <ul>
                 <li><a href="#home" class="active">Home</a></li>
@@ -40,10 +64,17 @@
                 <li><a href="#music">Music</a></li>
                 <li><a href="#fashion">Fashion</a></li>
                 <li><a href="#guestbook">Guestbook</a></li>
+                <!-- Add a new "Downloads" section -->
+                <li><a href="#downloads">Downloads</a></li>
             </ul>
         </nav>
 
-        <main>
+        <main id="main-content">
+            <!-- Add a classic "last updated" indicator -->
+            <div class="last-updated">
+                <blink>Last Updated: April 23, 2003</blink>
+            </div>
+            
             <section id="home" class="active-section">
                 <div class="welcome">
                     <img src="https://i.imgur.com/SnKQUNl.gif" alt="Divider">
@@ -141,6 +172,31 @@
                 </div>
             </section>
 
+            <!-- Add a new Downloads section -->
+            <section id="downloads">
+                <h2>~*~ Cool Downloads ~*~</h2>
+                <div class="download-items">
+                    <div class="download-item">
+                        <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/download.gif" alt="Download">
+                        <h3>Desktop Wallpapers</h3>
+                        <p>Make your computer look rad!</p>
+                        <a href="#" class="download-button">Download Now</a>
+                    </div>
+                    <div class="download-item">
+                        <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/download.gif" alt="Download">
+                        <h3>AIM Buddy Icons</h3>
+                        <p>Show off your personality!</p>
+                        <a href="#" class="download-button">Download Now</a>
+                    </div>
+                    <div class="download-item">
+                        <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/download.gif" alt="Download">
+                        <h3>MIDI Songs</h3>
+                        <p>Music for your site!</p>
+                        <a href="#" class="download-button">Download Now</a>
+                    </div>
+                </div>
+            </section>
+
             <section id="guestbook">
                 <h2>~*~ Sign My Guestbook! ~*~</h2>
                 <form id="guestbook-form">
@@ -159,6 +215,16 @@
                     <div class="form-group">
                         <label for="message">Message:</label>
                         <textarea id="message" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="mood">Current Mood:</label>
+                        <select id="mood" required>
+                            <option value="happy">Happy 😊</option>
+                            <option value="sad">Sad 😢</option>
+                            <option value="excited">Excited 🤩</option>
+                            <option value="bored">Bored 😴</option>
+                            <option value="confused">Confused 🤔</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <button type="submit">Submit</button>
@@ -214,6 +280,38 @@
                     <a href="#">Next ►</a>
                 </div>
             </div>
+
+            <!-- Add a poll widget -->
+            <div class="poll">
+                <h3>Daily Poll</h3>
+                <p>Best Boy Band?</p>
+                <form id="poll-form">
+                    <div><input type="radio" name="poll" id="nsync"> <label for="nsync">*NSYNC</label></div>
+                    <div><input type="radio" name="poll" id="bsb"> <label for="bsb">Backstreet Boys</label></div>
+                    <div><input type="radio" name="poll" id="98degrees"> <label for="98degrees">98 Degrees</label></div>
+                    <div><input type="radio" name="poll" id="o-town"> <label for="o-town">O-Town</label></div>
+                    <button type="submit">Vote!</button>
+                </form>
+                <div class="poll-results">
+                    <div class="result-bar" style="width: 45%;">*NSYNC (45%)</div>
+                    <div class="result-bar" style="width: 35%;">Backstreet Boys (35%)</div>
+                    <div class="result-bar" style="width: 15%;">98 Degrees (15%)</div>
+                    <div class="result-bar" style="width: 5%;">O-Town (5%)</div>
+                </div>
+            </div>
+            
+            <!-- Add a classic web counter -->
+            <div class="web-counter">
+                <h3>Page Views</h3>
+                <div class="counter-digits">
+                    <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/0.gif" alt="0">
+                    <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/0.gif" alt="0">
+                    <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/1.gif" alt="1">
+                    <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/3.gif" alt="3">
+                    <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/3.gif" alt="3">
+                    <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/7.gif" alt="7">
+                </div>
+            </div>
         </aside>
 
         <footer>
@@ -230,10 +328,24 @@
                 <img src="https://web.archive.org/web/20091027034228/http://www.geocities.com/Paris/Rue/1208/netnow3.gif" alt="Netscape Now">
                 <img src="https://web.archive.org/web/20091027034228/http://www.geocities.com/Paris/Rue/1208/ie_anim.gif" alt="Internet Explorer">
                 <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/noframes.gif" alt="No Frames">
+                <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/madewithnotepad.gif" alt="Made with Notepad">
+                <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/bestviewed800.gif" alt="Best viewed at 800x600">
+                <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/y2k_compliant.gif" alt="Y2K Compliant">
+            </div>
+            <!-- Add a classic "sign my guestbook" animated gif -->
+            <div class="sign-guestbook">
+                <a href="#guestbook">
+                    <img src="https://web.archive.org/web/20091020152356/http://www.geocities.com/Hollywood/Hills/8521/guestbook.gif" alt="Sign my guestbook!">
+                </a>
             </div>
         </footer>
     </div>
 
     <div id="cursor-trail"></div>
+    
+    <!-- Add a classic "back to top" button -->
+    <div class="back-to-top">
+        <a href="#top">↑ Back to Top ↑</a>
+    </div>
 </body>
 </html> 
