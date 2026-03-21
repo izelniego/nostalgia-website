@@ -148,6 +148,7 @@ h2 {
 }
 
 .intro {
+    display: flow-root;
     text-align: left;
     margin: 20px 0;
     line-height: 1.6;
@@ -461,21 +462,196 @@ footer a:hover {
     transition: opacity 0.5s;
 }
 
-@media (max-width: 600px) {
+/* Welcome popup */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 51, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.popup-content {
+    background: linear-gradient(to bottom, #ffccff, #cc99ff);
+    border: 3px solid #ff66cc;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    color: #330066;
+    box-shadow: 0 0 30px #ff66ff;
+    max-width: 400px;
+}
+
+.popup-content button {
+    background-color: #ff66cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 30px;
+    cursor: pointer;
+    font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.popup-content button:hover {
+    background-color: #cc66ff;
+}
+
+/* Poll results hidden by default */
+.poll-results {
+    display: none;
+}
+
+.result-bar {
+    background: linear-gradient(to right, #ff66cc, #cc66ff);
+    color: white;
+    padding: 4px 8px;
+    margin-bottom: 4px;
+    border-radius: 3px;
+    font-size: 0.85rem;
+}
+
+/* CSS fallback for <blink> (no modern browser supports it natively) */
+blink {
+    animation: blink 1s step-end infinite;
+}
+
+/* CSS fallback for <marquee> in case browser drops support */
+@keyframes marquee-scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Focus styles for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid #ff66cc;
+    outline-offset: 2px;
+}
+
+nav a:focus-visible {
+    background-color: #ff66cc;
+    color: white;
+}
+
+/* Download items grid */
+.download-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.download-item {
+    text-align: center;
+    border: 2px solid #cc99ff;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f0f0ff;
+}
+
+.download-item img {
+    max-width: 60px;
+    margin-bottom: 10px;
+}
+
+.download-button {
+    display: inline-block;
+    background-color: #ff66cc;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 8px;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: #cc66ff;
+}
+
+/* Back to top */
+.back-to-top {
+    text-align: center;
+    padding: 10px;
+}
+
+.back-to-top a {
+    color: #ff66cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-to-top a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 900px) {
     .container {
         width: 95%;
     }
-    
+
+    .construction {
+        display: none;
+    }
+
+    .visitor-counter {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 98%;
+    }
+
     nav ul {
         flex-direction: column;
         align-items: center;
     }
-    
+
     nav li {
         margin-bottom: 5px;
     }
-    
-    .movie-grid, .fashion-items {
+
+    .movie-grid, .fashion-items, .download-items {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
-} 
+
+    .now-playing {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .spinning-cd {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .glitter-text {
+        font-size: 1.5rem;
+    }
+
+    .movie-grid, .fashion-items, .download-items {
+        grid-template-columns: 1fr;
+    }
+
+    .badges {
+        flex-wrap: wrap;
+    }
+}
