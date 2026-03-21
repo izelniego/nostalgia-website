@@ -21,6 +21,12 @@
         <div class="popup-content">
             <h2>Welcome to my site!</h2>
             <p>⭐ You've been chosen to view my awesome Y2K page! ⭐</p>
+            <div id="dialup-status" style="display: none;">
+                <div class="dialup-progress">
+                    <div class="dialup-progress-bar" id="dialup-bar"></div>
+                </div>
+                <p id="dialup-text" class="dialup-text">Initializing modem...</p>
+            </div>
             <button id="enter-site">Enter Site</button>
         </div>
     </div>
@@ -67,6 +73,7 @@
                 <li><a href="#guestbook">Guestbook</a></li>
                 <!-- Add a new "Downloads" section -->
                 <li><a href="#downloads">Downloads</a></li>
+                <li><a href="#quiz">Quiz</a></li>
             </ul>
         </nav>
 
@@ -214,8 +221,8 @@
                         <input type="text" id="asl" placeholder="16/F/Cali">
                     </div>
                     <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea id="message" rows="4" required></textarea>
+                        <label for="message">Message: <span id="char-count" class="char-count">(0/500)</span></label>
+                        <textarea id="message" rows="4" required maxlength="500"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="mood">Current Mood:</label>
@@ -233,7 +240,7 @@
                     </div>
                 </form>
 
-                <div class="guestbook-entries">
+                <div class="guestbook-entries" id="guestbook-entries">
                     <h3>Recent Entries:</h3>
                     <div class="entry">
                         <p class="entry-header">From: JoeyTribbiani (25/M/NYC) - 04/23/2003</p>
@@ -245,21 +252,40 @@
                     </div>
                 </div>
             </section>
+
+            <section id="quiz">
+                <h2>~*~ Test Your Y2K Knowledge! ~*~</h2>
+                <div class="quiz-container">
+                    <div id="quiz-question" class="quiz-question"></div>
+                    <div id="quiz-options" class="quiz-options"></div>
+                    <div id="quiz-progress" class="quiz-progress">
+                        <div id="quiz-progress-bar" class="quiz-progress-bar"></div>
+                    </div>
+                    <p id="quiz-score-text" class="quiz-score-text"></p>
+                    <div id="quiz-result" class="quiz-result" style="display: none;">
+                        <h3 id="quiz-final-score"></h3>
+                        <p id="quiz-badge"></p>
+                        <button id="quiz-restart">Take Quiz Again!</button>
+                    </div>
+                    <button id="quiz-start" class="quiz-start-btn">Start Quiz!</button>
+                </div>
+            </section>
         </main>
 
         <aside>
             <div class="buddy-list">
                 <h3>Buddy List</h3>
-                <div class="buddy online">
+                <p class="buddy-list-subtitle">Click a buddy to chat!</p>
+                <div class="buddy online" data-buddy="ChandlerBing" data-away="">
                     <span class="status">●</span> ChandlerBing
                 </div>
-                <div class="buddy away">
-                    <span class="status">●</span> RossGeller (Away: At the museum)
+                <div class="buddy away" data-buddy="RossGeller" data-away="At the museum">
+                    <span class="status">●</span> RossGeller <span class="away-msg">(Away: At the museum)</span>
                 </div>
-                <div class="buddy online">
+                <div class="buddy online" data-buddy="MonicaGeller" data-away="">
                     <span class="status">●</span> MonicaGeller
                 </div>
-                <div class="buddy offline">
+                <div class="buddy offline" data-buddy="PhoebeBuffay" data-away="Smelly Cat rehearsal">
                     <span class="status">●</span> PhoebeBuffay
                 </div>
             </div>
@@ -344,7 +370,43 @@
     </div>
 
     <div id="cursor-trail"></div>
-    
+
+    <!-- AIM Chat Window Template -->
+    <div id="aim-chat" class="aim-window" style="display: none;">
+        <div class="aim-titlebar" id="aim-titlebar">
+            <span id="aim-chat-title">ChandlerBing - Instant Message</span>
+            <div class="aim-titlebar-buttons">
+                <button class="aim-btn aim-minimize" id="aim-minimize">_</button>
+                <button class="aim-btn aim-close" id="aim-close">X</button>
+            </div>
+        </div>
+        <div class="aim-body">
+            <div class="aim-messages" id="aim-messages"></div>
+            <div class="aim-typing" id="aim-typing" style="display: none;">
+                <em><span id="aim-typing-name">ChandlerBing</span> is typing...</em>
+            </div>
+            <div class="aim-input-area">
+                <input type="text" id="aim-input" placeholder="Type a message..." autocomplete="off">
+                <button id="aim-send">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BSOD Overlay -->
+    <div id="bsod" class="bsod-overlay" style="display: none;">
+        <div class="bsod-content">
+            <h2>Windows</h2>
+            <p>A fatal exception 0E has occurred at 0028:C0011E36 in VXD VMM(01) +
+            00010E36. The current application will be terminated.</p>
+            <br>
+            <p>*  Press any key to terminate the current application.</p>
+            <p>*  Press CTRL+ALT+DEL to restart your computer. You will</p>
+            <p>   lose any unsaved information in all applications.</p>
+            <br>
+            <p style="text-align: center;">Press any key to continue _</p>
+        </div>
+    </div>
+
     <!-- Add a classic "back to top" button -->
     <div class="back-to-top">
         <a href="#top">↑ Back to Top ↑</a>
